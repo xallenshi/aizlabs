@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SyncBig — Installation Guide | AI Zone Labs</title>
+<meta name="description" content="Install SyncBig from the BigCommerce App Marketplace and create your first sync job in under two minutes." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230A0E1A'/%3E%3Cpath d='M32 10 L54 46 H10 Z' fill='none' stroke='%233B82F6' stroke-width='4'/%3E%3Ccircle cx='32' cy='34' r='4' fill='%238B5CF6'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Roboto:wght@300;400;500;700;900&family=Anonymous+Pro:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/aizlabs.css">
+<style>
+  .step-block{
+    display:flex; gap:16px; padding:18px 0; border-bottom:1px solid #E5E7EB;
+  }
+  .step-block:last-child{ border-bottom:none; }
+  .step-num{
+    flex:none; width:30px; height:30px; border-radius:50%; background:var(--ink); color:var(--on-ink);
+    font-family:var(--font-mono); font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center;
+  }
+  .step-block p{ margin-bottom:0; padding-top:4px; }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="shell">
+    <a href="/" class="logo">
+      <svg class="mark" viewBox="0 0 64 64" fill="none"><path d="M32 8 L58 50 H6 Z" stroke="url(#g1)" stroke-width="4"/><circle cx="32" cy="36" r="4" fill="#8B5CF6"/><defs><linearGradient id="g1" x1="6" y1="8" x2="58" y2="50"><stop stop-color="#3B82F6"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs></svg>
+      AI ZONE LABS <span class="sub">SyncBig</span>
+    </a>
+    <div class="nav-links">
+      <a href="/syncbig">Overview</a>
+      <a href="/syncbig/installation-guide" class="active">Installation Guide</a>
+      <a href="/syncbig/user-guide">User Guide</a>
+      <a href="/syncbig/terms-of-service">Terms of Service</a>
+      <a href="/syncbig/privacy-policy">Privacy Policy</a>
+    </div>
+    <a href="/syncbig/user-guide" class="btn btn-ghost nav-cta">User Guide →</a>
+    <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/syncbig">Overview</a>
+  <a href="/syncbig/installation-guide">Installation Guide</a>
+  <a href="/syncbig/user-guide">User Guide</a>
+  <a href="/syncbig/terms-of-service">Terms of Service</a>
+  <a href="/syncbig/privacy-policy">Privacy Policy</a>
+</div>
+
+<header class="doc-hero">
+  <div class="grid-bg"></div>
+  <div class="shell">
+    <div class="crumb"><a href="/syncbig">SyncBig</a> <span>/</span> <span>Documentation</span></div>
+    <h1>Installation Guide</h1>
+    <p class="lede">SyncBig connects to your BigCommerce store via OAuth. No developer account or technical setup is required — installation takes under two minutes.</p>
+  </div>
+</header>
+
+<main>
+  <div class="shell doc-layout">
+    <aside class="doc-toc">
+      <h4>On This Page</h4>
+      <ul>
+        <li><a href="#before">Before You Install</a></li>
+        <li><a href="#steps">Installation Steps</a></li>
+        <li><a href="#first-job">Creating Your First Sync Job</a></li>
+      </ul>
+    </aside>
+
+    <article class="prose">
+      <h2 id="before">Before You Install</h2>
+      <p>SyncBig connects to your BigCommerce store via OAuth. No developer account or technical setup is required — installation takes under two minutes.</p>
+      <div class="note"><strong>Google Sheets destinations:</strong> your spreadsheet must be set to <strong>Anyone with the link → Editor</strong> before the first sync runs.</div>
+      <div class="note"><strong>Asana and Slack destinations:</strong> you will be guided through a standard OAuth authorization flow inside the App.</div>
+
+      <h2 id="steps">Installation Steps</h2>
+      <div class="step-block">
+        <div class="step-num">1</div>
+        <p>Find SyncBig in the BigCommerce App Marketplace and click <strong>Get This App</strong>.</p>
+      </div>
+      <div class="step-block">
+        <div class="step-num">2</div>
+        <div>
+          <p>Click <strong>Install</strong> on the app detail page. You will be shown a permissions consent screen listing the OAuth scopes the App requires:</p>
+          <ul style="margin-top:12px;">
+            <li><code>store_v2_orders</code> — read your store's orders</li>
+            <li><code>store_v2_products</code> — read your store's products</li>
+            <li><code>store_v2_customers</code> — read your store's customers</li>
+          </ul>
+        </div>
+      </div>
+      <div class="step-block">
+        <div class="step-num">3</div>
+        <p>Click <strong>Confirm</strong> to approve the permissions. BigCommerce will redirect you to the SyncBig dashboard inside your store's control panel.</p>
+      </div>
+      <div class="step-block">
+        <div class="step-num">4</div>
+        <p>You're installed. The dashboard will show zero jobs and zero stats — you're ready to create your first sync job.</p>
+      </div>
+
+      <h2 id="first-job">Creating Your First Sync Job</h2>
+      <div class="step-block">
+        <div class="step-num">1</div>
+        <p>Click <strong>New Sync Job</strong> (or <strong>Create Your First Job</strong> if no jobs exist yet).</p>
+      </div>
+      <div class="step-block">
+        <div class="step-num">2</div>
+        <p>Select a <strong>Data Type</strong>: Orders, Products, or Customers.</p>
+      </div>
+      <div class="step-block">
+        <div class="step-num">3</div>
+        <p>Select a <strong>Destination</strong>: Google Sheets, Asana, or Slack. Follow any OAuth prompts for Asana or Slack, or paste your Google Sheet URL for Google Sheets.</p>
+      </div>
+      <div class="step-block">
+        <div class="step-num">4</div>
+        <p>Select the <strong>Condition</strong> you want to include in the sync.</p>
+      </div>
+      <div class="step-block">
+        <div class="step-num">5</div>
+        <p>Select the <strong>Fields</strong> you want to include in the sync.</p>
+      </div>
+      <div class="step-block">
+        <div class="step-num">6</div>
+        <p>Set a <strong>Schedule</strong> (frequency + time) and give the job a name.</p>
+      </div>
+      <div class="step-block">
+        <div class="step-num">7</div>
+        <p>Click <strong>Create Job</strong>. Your job is now Active and will run automatically on its next scheduled time.</p>
+      </div>
+
+      <div class="contact-card">
+        <span>You are ready to go!</span>
+        <a href="/syncbig/user-guide">Read the full User Guide →</a>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="shell">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <svg class="mark" viewBox="0 0 64 64" fill="none"><path d="M32 8 L58 50 H6 Z" stroke="url(#g2)" stroke-width="4"/><circle cx="32" cy="36" r="4" fill="#8B5CF6"/><defs><linearGradient id="g2" x1="6" y1="8" x2="58" y2="50"><stop stop-color="#3B82F6"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs></svg>
+          AI ZONE LABS
+        </a>
+        <p>SyncBig is a native BigCommerce app built by AI Zone Labs, automating store-data sync to the tools your team already uses.</p>
+      </div>
+      <div class="footer-col">
+        <h4>SyncBig</h4>
+        <ul>
+          <li><a href="/syncbig">Overview</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Documentation</h4>
+        <ul>
+          <li><a href="/syncbig/installation-guide">Installation Guide</a></li>
+          <li><a href="/syncbig/user-guide">User Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/syncbig/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/syncbig/terms-of-service">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 AI Zone Labs. All rights reserved.</span>
+      <span><a href="/" style="color:#93C5FD;">← Back to AI Zone Labs</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    const open = burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    burger.classList.remove('open'); mobileMenu.classList.remove('open'); burger.setAttribute('aria-expanded', 'false');
+  }));
+
+  const tocLinks = document.querySelectorAll('.doc-toc a');
+  const headings = [...tocLinks].map(a => document.querySelector(a.getAttribute('href')));
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const link = document.querySelector('.doc-toc a[href="#' + entry.target.id + '"]');
+      if (!link) return;
+      if (entry.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-96px 0px -70% 0px' });
+  headings.forEach(h => h && spy.observe(h));
+</script>
+
+</body>
+</html>

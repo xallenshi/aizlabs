@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SyncBig — User Guide | AI Zone Labs</title>
+<meta name="description" content="Complete guide to the SyncBig dashboard, creating and managing sync jobs, sync history, and frequently asked questions." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230A0E1A'/%3E%3Cpath d='M32 10 L54 46 H10 Z' fill='none' stroke='%233B82F6' stroke-width='4'/%3E%3Ccircle cx='32' cy='34' r='4' fill='%238B5CF6'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Roboto:wght@300;400;500;700;900&family=Anonymous+Pro:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/aizlabs.css">
+<style>
+  .faq-item{ border-bottom:1px solid #E5E7EB; padding:18px 0; }
+  .faq-item:first-child{ padding-top:0; }
+  .faq-item:last-child{ border-bottom:none; }
+  .faq-q{ font-weight:700; color:var(--text); font-size:15.5px; margin-bottom:8px; }
+  .faq-q::before{ content:'Q. '; color:var(--primary-dark); font-family:var(--font-mono); }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="shell">
+    <a href="/" class="logo">
+      <svg class="mark" viewBox="0 0 64 64" fill="none"><path d="M32 8 L58 50 H6 Z" stroke="url(#g1)" stroke-width="4"/><circle cx="32" cy="36" r="4" fill="#8B5CF6"/><defs><linearGradient id="g1" x1="6" y1="8" x2="58" y2="50"><stop stop-color="#3B82F6"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs></svg>
+      AI ZONE LABS <span class="sub">SyncBig</span>
+    </a>
+    <div class="nav-links">
+      <a href="/syncbig">Overview</a>
+      <a href="/syncbig/installation-guide">Installation Guide</a>
+      <a href="/syncbig/user-guide" class="active">User Guide</a>
+      <a href="/syncbig/terms-of-service">Terms of Service</a>
+      <a href="/syncbig/privacy-policy">Privacy Policy</a>
+    </div>
+    <a href="/syncbig/installation-guide" class="btn btn-ghost nav-cta">Install Guide →</a>
+    <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/syncbig">Overview</a>
+  <a href="/syncbig/installation-guide">Installation Guide</a>
+  <a href="/syncbig/user-guide">User Guide</a>
+  <a href="/syncbig/terms-of-service">Terms of Service</a>
+  <a href="/syncbig/privacy-policy">Privacy Policy</a>
+</div>
+
+<header class="doc-hero">
+  <div class="grid-bg"></div>
+  <div class="shell">
+    <div class="crumb"><a href="/syncbig">SyncBig</a> <span>/</span> <span>Documentation</span></div>
+    <h1>User Guide</h1>
+    <p class="lede">SyncBig automates the flow of your BigCommerce store data into Google Sheets, Asana, and Slack. Once you create a sync job, it runs automatically in the background on your chosen schedule.</p>
+  </div>
+</header>
+
+<main>
+  <div class="shell doc-layout">
+    <aside class="doc-toc">
+      <h4>On This Page</h4>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#dashboard">The Dashboard</a></li>
+        <li><a href="#creating">Creating a Sync Job</a></li>
+        <li><a href="#managing">Managing Jobs</a></li>
+        <li><a href="#history">Sync History</a></li>
+        <li><a href="#reconnect">Reconnecting Asana or Slack</a></li>
+        <li><a href="#uninstall">Uninstalling</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </aside>
+
+    <article class="prose">
+      <h2 id="overview">Overview</h2>
+      <p>SyncBig automates the flow of your BigCommerce store data into Google Sheets, Asana, and Slack. Once you create a sync job, it runs automatically in the background on your chosen schedule. You can manage all your jobs and review sync history from the App's dashboard.</p>
+
+      <h2 id="dashboard">The Dashboard</h2>
+      <p>When you open SyncBig, you land on the Dashboard. It shows:</p>
+      <div class="doc-table-wrap">
+        <table class="doc-table">
+          <thead><tr><th>Stat</th><th>What It Shows</th></tr></thead>
+          <tbody>
+            <tr><td>Total Jobs</td><td>Total number of sync jobs created for your store</td></tr>
+            <tr><td>Active Jobs</td><td>Jobs currently enabled and scheduled to run</td></tr>
+            <tr><td>Total Syncs Today</td><td>All sync runs completed since midnight UTC</td></tr>
+            <tr><td>Successful Today</td><td>Syncs that completed without error today</td></tr>
+            <tr><td>Failed Today</td><td>Syncs that encountered an error today</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The Recent Active Sync Jobs table shows your latest 5 active jobs with their last run time and next scheduled run. Click any row to jump to that job's sync history. Click any stat card to jump to a filtered view of your jobs or logs.</p>
+
+      <h2 id="creating">Creating a Sync Job</h2>
+      <p>Click <strong>New Sync Job</strong> from the dashboard or the Jobs page. The job form has five steps:</p>
+
+      <h3>Step 1 — Data Type</h3>
+      <p>Choose what BigCommerce data to sync:</p>
+      <ul>
+        <li>Orders — order records including status, totals, customer info</li>
+        <li>Products — product catalogue records including SKU, price, inventory</li>
+        <li>Customers — customer account records including name and email</li>
+      </ul>
+
+      <h3>Step 2 — Destination</h3>
+      <p>Choose where to send the data:</p>
+      <p><strong>Google Sheets</strong></p>
+      <ul>
+        <li>Paste the full URL of your Google Sheet (e.g. <code>https://docs.google.com/spreadsheets/d/…/edit</code>)</li>
+        <li>The sheet must be set to <strong>Anyone with the link → Editor</strong> in Google Sheets sharing settings</li>
+        <li>Optionally specify a sheet tab name (defaults to <code>Sheet1</code>)</li>
+        <li>The App validates your sheet URL and access before you can proceed</li>
+      </ul>
+      <p><strong>Asana</strong></p>
+      <ul>
+        <li>Click <strong>Connect Asana</strong> to authorize via OAuth (one-time setup per store)</li>
+        <li>Select a Workspace then a Project from the dropdowns</li>
+        <li>Synced records will be created as Asana tasks, with your selected fields mapped to custom fields on the project</li>
+      </ul>
+      <p><strong>Slack</strong></p>
+      <ul>
+        <li>Click <strong>Connect Slack</strong> to authorize via OAuth (one-time setup per store)</li>
+        <li>Select a channel from the dropdown</li>
+        <li>Choose a sync mode — Summary Alert sends a single message summarizing all new records from the sync run</li>
+      </ul>
+
+      <h3>Step 3 — Condition</h3>
+      <p>Select the data condition you want included in each sync run. The available conditions vary by data type. At least one condition must be selected.</p>
+
+      <h3>Step 4 — Fields</h3>
+      <p>Select the data fields you want included in each sync run. The available fields vary by data type. At least one field must be selected.</p>
+
+      <h3>Step 5 — Schedule</h3>
+      <p>Give the job a name and set its schedule:</p>
+      <div class="doc-table-wrap">
+        <table class="doc-table">
+          <thead><tr><th>Frequency</th><th>Time Input</th><th>Behaviour</th></tr></thead>
+          <tbody>
+            <tr><td>Hourly</td><td>Minute of each hour (e.g. <code>:15</code>)</td><td>Runs at XX:15 every hour</td></tr>
+            <tr><td>Every 6 Hours</td><td>Starting at (e.g. <code>06:30</code>)</td><td>Runs at 06:30, 12:30, 18:30, 00:30 UTC</td></tr>
+            <tr><td>Every 12 Hours</td><td>Starting at (e.g. <code>08:00</code>)</td><td>Runs at 08:00, 20:00 UTC</td></tr>
+            <tr><td>Daily</td><td>Starting at (e.g. <code>09:00</code>)</td><td>Runs at 09:00 UTC each day</td></tr>
+            <tr><td>Weekly</td><td>Starting at + day of week</td><td>Runs at the specified time on the chosen weekday</td></tr>
+            <tr><td>Monthly</td><td>Starting at + day of month</td><td>Runs at the specified time on the chosen date (or last day)</td></tr>
+            <tr><td>Once</td><td>—</td><td>Runs one time only, then auto-pauses</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">All times are user timezone based.</div>
+      <p>Also choose <strong>Sync Data From</strong>:</p>
+      <ul>
+        <li><strong>From now</strong> — only sync records created or updated after this job is created (best for ongoing operational feeds)</li>
+        <li><strong>From the beginning</strong> — full historical sync on first run (best for reporting and analysis)</li>
+        <li><strong>Custom date</strong> — sync records from a specific date and time onwards</li>
+      </ul>
+      <p>Click <strong>Create Job</strong> to save. The job is created with status Active and will run at its next scheduled time.</p>
+
+      <h2 id="managing">Managing Jobs</h2>
+      <p>Navigate to <strong>Sync Jobs</strong> from the menu to see all your sync jobs.</p>
+      <h3>Editing a Job</h3>
+      <p>Click a job's name to open it, then click <strong>Edit</strong>. You can change the job name, schedule, and sync start point. Changing the schedule recalculates the next run time immediately.</p>
+      <h3>Pausing a Job</h3>
+      <p>Click <strong>Pause</strong> on any active job. The job stops running but retains all its settings. Click <strong>Resume</strong> to re-enable it — the next run time is recalculated from the current moment.</p>
+      <h3>Deleting a Job</h3>
+      <p>Click <strong>Delete</strong> and confirm. The job and all its sync history logs are permanently removed.</p>
+
+      <h2 id="history">Sync History</h2>
+      <p>Navigate to <strong>Sync History</strong> from the sidebar to see a log of all sync runs.</p>
+      <p><strong>Filter options:</strong></p>
+      <ul>
+        <li>By Job — view runs for a specific job only</li>
+        <li>By Status — Success, Failed, or Running</li>
+        <li>By Date Range — Last 24 hours, Last 7 days, Last 30 days</li>
+      </ul>
+      <p><strong>Log columns:</strong></p>
+      <ul>
+        <li>Job Name — which job triggered the run</li>
+        <li>Data Type — Orders, Products, or Customers</li>
+        <li>Started — date and time the run began</li>
+        <li>Status — Success, Failed, or Running</li>
+        <li>Rows Synced — number of records written to the destination</li>
+      </ul>
+
+      <h2 id="reconnect">Reconnecting Asana or Slack</h2>
+      <p>If your Asana or Slack connection expires or is revoked, you can reconnect by editing any job that uses that destination and clicking the <strong>Connect</strong> button again to re-authorize via OAuth.</p>
+
+      <h2 id="uninstall">Uninstalling</h2>
+      <p>To uninstall SyncBig, go to <strong>Apps</strong> in your BigCommerce control panel, find SyncBig, and click <strong>Uninstall</strong>. All your jobs, sync history, and OAuth tokens are permanently deleted from our systems.</p>
+
+      <h2 id="faq">Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">How quickly after a sync schedule fires will my data arrive at the destination?</div>
+        <p style="margin-bottom:0;">SyncBig checks for due jobs every 5 minutes, so a scheduled job may run up to 5 minutes after its configured time.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Will my Google Sheet be overwritten on each sync?</div>
+        <p style="margin-bottom:0;">SyncBig appends new rows to your sheet on each run by default. You can set Sync Mode to “Replace all data” to overwrite your sheet on every sync.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What happens if a sync fails?</div>
+        <p style="margin-bottom:0;">The failure is logged in Sync History with an error message. The job remains Active and will attempt to run again at its next scheduled time.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I run a job immediately without waiting for the schedule?</div>
+        <p style="margin-bottom:0;">Yes. Create a job with the Once schedule type — it will be picked up on the next cron tick (within 5 minutes).</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Does SyncBig support multiple stores?</div>
+        <p style="margin-bottom:0;">Yes. Each BigCommerce store that installs the App gets its own isolated set of jobs, logs, and OAuth connections.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">My Asana tasks are duplicated after re-running a job. Why?</div>
+        <p style="margin-bottom:0;">SyncBig employs incremental syncing, automatically fetching only those records modified since the last successful run. To prevent duplicates, the system automatically updates a custom date field after each sync, which then serves as the "start date" for the subsequent cycle. If you changed the Sync Data From setting to From the beginning on an edit, the next run will re-sync all historical records.</p>
+      </div>
+
+      <div class="contact-card">
+        <span>Still have questions?</span>
+        <a href="mailto:admin@aizlabs.com">admin@aizlabs.com</a>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="shell">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <svg class="mark" viewBox="0 0 64 64" fill="none"><path d="M32 8 L58 50 H6 Z" stroke="url(#g2)" stroke-width="4"/><circle cx="32" cy="36" r="4" fill="#8B5CF6"/><defs><linearGradient id="g2" x1="6" y1="8" x2="58" y2="50"><stop stop-color="#3B82F6"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs></svg>
+          AI ZONE LABS
+        </a>
+        <p>SyncBig is a native BigCommerce app built by AI Zone Labs, automating store-data sync to the tools your team already uses.</p>
+      </div>
+      <div class="footer-col">
+        <h4>SyncBig</h4>
+        <ul>
+          <li><a href="/syncbig">Overview</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Documentation</h4>
+        <ul>
+          <li><a href="/syncbig/installation-guide">Installation Guide</a></li>
+          <li><a href="/syncbig/user-guide">User Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/syncbig/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/syncbig/terms-of-service">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 AI Zone Labs. All rights reserved.</span>
+      <span><a href="/" style="color:#93C5FD;">← Back to AI Zone Labs</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    const open = burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    burger.classList.remove('open'); mobileMenu.classList.remove('open'); burger.setAttribute('aria-expanded', 'false');
+  }));
+
+  const tocLinks = document.querySelectorAll('.doc-toc a');
+  const headings = [...tocLinks].map(a => document.querySelector(a.getAttribute('href')));
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const link = document.querySelector('.doc-toc a[href="#' + entry.target.id + '"]');
+      if (!link) return;
+      if (entry.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-96px 0px -70% 0px' });
+  headings.forEach(h => h && spy.observe(h));
+</script>
+
+</body>
+</html>
