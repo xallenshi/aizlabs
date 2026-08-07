@@ -32,6 +32,14 @@
   .hero p.lede{ margin:24px auto 0; max-width:600px; font-size:17px; font-weight:300; color:var(--on-ink-muted); }
   .hero-actions{ margin-top:36px; display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
   .hero-pad{ height:80px; }
+  .marketplace-badge{
+    margin-top:20px; display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--font-mono); font-size:12px; letter-spacing:.04em;
+    padding:9px 18px; border-radius:100px; border:1px solid var(--ink-line);
+    color:var(--on-ink-muted); transition:border-color .3s var(--ease), color .3s var(--ease);
+  }
+  .marketplace-badge svg{ flex:none; color:#22C55E; }
+  .marketplace-badge:hover{ border-color:var(--primary); color:var(--on-ink); }
 
   .intro{ padding:80px 0 20px; }
   .intro .shell{ max-width:820px; }
@@ -129,6 +137,10 @@
       <div class="hero-inner">
         <span class="eyebrow">A BigCommerce App by AI Zone Labs</span>
         <h1>Your Store Data, <span class="grad-text">Synced Automatically.</span></h1>
+        <a href="https://www.bigcommerce.com/apps/syncbig/" target="_blank" rel="noopener" class="marketplace-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>
+          Approved &amp; Published on the BigCommerce App Marketplace
+        </a>
         <p class="lede">SyncBig pushes your BigCommerce orders, products, and customers straight into Google Sheets, Asana, and Slack — on a schedule you define, with no code and no manual exports.</p>
         <div class="hero-actions">
           <a href="/syncbig/installation-guide" class="btn btn-primary">Get Started →</a>
@@ -272,7 +284,7 @@
           <svg class="mark" viewBox="0 0 64 64" fill="none"><path d="M32 8 L58 50 H6 Z" stroke="url(#g2)" stroke-width="4"/><circle cx="32" cy="36" r="4" fill="#8B5CF6"/><defs><linearGradient id="g2" x1="6" y1="8" x2="58" y2="50"><stop stop-color="#3B82F6"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs></svg>
           AI ZONE LABS
         </a>
-        <p>SyncBig is a native BigCommerce app built by AI Zone Labs, automating store-data sync to the tools your team already uses.</p>
+        <p>SyncBig is a native BigCommerce app built by AI Zone Labs, approved and published on the BigCommerce App Marketplace, automating store-data sync to the tools your team already uses.</p>
       </div>
       <div class="footer-col">
         <h4>SyncBig</h4>
@@ -281,6 +293,7 @@
           <li><a href="#sync">What You Can Sync</a></li>
           <li><a href="#destinations">Destinations</a></li>
           <li><a href="#scheduling">Scheduling</a></li>
+          <li><a href="https://www.bigcommerce.com/apps/syncbig/" target="_blank" rel="noopener">BigCommerce Marketplace ↗</a></li>
         </ul>
       </div>
       <div class="footer-col">
