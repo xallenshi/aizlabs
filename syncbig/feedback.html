@@ -26,8 +26,7 @@
   .fb-row .fb-field{ flex:1; min-width:220px; }
   .fb-note{ font-size:13.5px; color:var(--text-muted); margin-top:-6px; margin-bottom:24px; }
   .fb-status{ display:none; font-family:var(--font-mono); font-size:13.5px; padding:12px 14px; border-radius:var(--radius); margin-top:16px; }
-  .fb-status.ok{ display:block; background:rgba(22,163,74,.08); color:var(--success); border:1px solid rgba(22,163,74,.25); }
-  .fb-status.err{ display:block; background:rgba(220,38,38,.08); color:var(--danger); border:1px solid rgba(220,38,38,.25); }
+  .fb-status.ok{ background:rgba(22,163,74,.08); color:var(--success); border:1px solid rgba(22,163,74,.25); }
 </style>
 </head>
 <body>
@@ -108,7 +107,6 @@
 
       <button type="submit" class="btn btn-primary">Send Feedback →</button>
       <div class="fb-status ok" id="fbOk">Thanks — your feedback was sent. We'll be in touch if a reply is needed.</div>
-      <div class="fb-status err" id="fbErr">Something went wrong sending this. Please email us directly at <a href="mailto:admin@aizlabs.com">admin@aizlabs.com</a>.</div>
     </form>
 
     <div class="contact-card" style="margin:32px auto 0;max-width:620px;">
@@ -171,11 +169,9 @@
 
   const form = document.getElementById('feedbackForm');
   const fbOk = document.getElementById('fbOk');
-  const fbErr = document.getElementById('fbErr');
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     fbOk.style.display = 'none';
-    fbErr.style.display = 'none';
     const submitBtn = form.querySelector('button[type="submit"]');
     submitBtn.disabled = true;
     try {
@@ -187,11 +183,7 @@
       if (res.ok) {
         form.reset();
         fbOk.style.display = 'block';
-      } else {
-        fbErr.style.display = 'block';
       }
-    } catch (err) {
-      fbErr.style.display = 'block';
     } finally {
       submitBtn.disabled = false;
     }
