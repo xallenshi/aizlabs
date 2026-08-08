@@ -11,7 +11,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Roboto:wght@300;400;500;700;900&family=Anonymous+Pro:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/aizlabs.css">
 <style>
-  .fb-form{ max-width:620px; }
+  .fb-page{ padding:64px 0 100px; }
+  .fb-form{ max-width:620px; margin:0 auto; }
   .fb-field{ margin-bottom:20px; }
   .fb-field label{ display:block; font-family:var(--font-mono); font-size:12.5px; letter-spacing:.04em; color:var(--text); margin-bottom:7px; }
   .fb-field input, .fb-field select, .fb-field textarea{
@@ -69,7 +70,7 @@
 </header>
 
 <main>
-  <div class="shell">
+  <div class="shell fb-page">
     <form class="fb-form prose" id="feedbackForm" action="https://formspree.io/f/xeajeekp" method="POST">
       <div class="fb-row">
         <div class="fb-field">
@@ -110,7 +111,7 @@
       <div class="fb-status err" id="fbErr">Something went wrong sending this. Please email us directly at <a href="mailto:admin@aizlabs.com">admin@aizlabs.com</a>.</div>
     </form>
 
-    <div class="contact-card" style="margin-top:32px;max-width:620px;">
+    <div class="contact-card" style="margin:32px auto 0;max-width:620px;">
       <span>Prefer email?</span>
       <a href="mailto:admin@aizlabs.com">admin@aizlabs.com</a>
     </div>

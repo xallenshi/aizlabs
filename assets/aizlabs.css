@@ -80,7 +80,7 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:400; letter-spacing:.01em
   position:sticky; top:0; z-index:100; background:rgba(8,11,20,.92); backdrop-filter:blur(14px);
   border-bottom:1px solid var(--ink-line); padding:16px 0;
 }
-.nav .shell{ display:flex; align-items:center; justify-content:space-between; gap:24px; }
+.nav .shell{ display:flex; align-items:center; justify-content:space-between; gap:24px; max-width:1320px; }
 .logo{
   font-family:var(--font-display); font-size:17px; letter-spacing:.04em; color:var(--on-ink);
   display:flex; align-items:center; gap:9px; flex:none;
@@ -90,10 +90,10 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:400; letter-spacing:.01em
   font-family:var(--font-mono); font-size:11px; color:var(--secondary); letter-spacing:.08em;
   border-left:1px solid var(--ink-line); padding-left:9px; margin-left:1px; text-transform:uppercase;
 }
-.nav-links{ display:none; align-items:center; gap:30px; flex:1; justify-content:center; }
+.nav-links{ display:none; align-items:center; gap:22px; flex:1; justify-content:center; }
 .nav-links a{
   font-family:var(--font-mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--on-ink-muted); position:relative; padding-bottom:4px; transition:color .3s;
+  color:var(--on-ink-muted); position:relative; padding-bottom:4px; transition:color .3s; white-space:nowrap;
 }
 .nav-links a::after{
   content:''; position:absolute; left:0; bottom:0; height:1px; width:0;
@@ -123,7 +123,7 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:400; letter-spacing:.01em
 .mobile-menu a{ font-family:var(--font-display); font-size:20px; color:var(--on-ink); letter-spacing:.03em; }
 .mobile-menu .btn{ margin-top:10px; }
 
-@media (min-width:940px){
+@media (min-width:1180px){
   .nav-links{ display:flex; }
   .nav-cta{ display:inline-flex; }
   .nav-burger, .mobile-menu{ display:none; }
