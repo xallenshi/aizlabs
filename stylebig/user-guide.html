@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>StyleBig — User Guide | AI Zone Labs</title>
+<meta name="description" content="Complete guide to the StyleBig studio tools, credits and plans, generation history, and frequently asked questions." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230A0E1A'/%3E%3Cpath d='M32 10 L54 46 H10 Z' fill='none' stroke='%233B82F6' stroke-width='4'/%3E%3Ccircle cx='32' cy='34' r='4' fill='%238B5CF6'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Roboto:wght@300;400;500;700;900&family=Anonymous+Pro:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/aizlabs.css">
+<style>
+  .faq-item{ border-bottom:1px solid #E5E7EB; padding:18px 0; }
+  .faq-item:first-child{ padding-top:0; }
+  .faq-item:last-child{ border-bottom:none; }
+  .faq-q{ font-weight:700; color:var(--text); font-size:15.5px; margin-bottom:8px; }
+  .faq-q::before{ content:'Q. '; color:var(--primary-dark); font-family:var(--font-mono); }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="shell">
+    <a href="/" class="logo">
+      <svg class="mark" viewBox="0 0 64 64" fill="none"><path d="M32 8 L58 50 H6 Z" stroke="url(#g1)" stroke-width="4"/><circle cx="32" cy="36" r="4" fill="#8B5CF6"/><defs><linearGradient id="g1" x1="6" y1="8" x2="58" y2="50"><stop stop-color="#3B82F6"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs></svg>
+      AI ZONE LABS <span class="sub">StyleBig</span>
+    </a>
+    <div class="nav-links">
+      <a href="/stylebig">Overview</a>
+      <a href="/stylebig/installation-guide">Installation Guide</a>
+      <a href="/stylebig/user-guide" class="active">User Guide</a>
+      <a href="/stylebig/terms-of-service">Terms of Service</a>
+      <a href="/stylebig/privacy-policy">Privacy Policy</a>
+    </div>
+    <a href="/stylebig/feedback" class="btn btn-ghost nav-cta">Feedback →</a>
+    <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/stylebig">Overview</a>
+  <a href="/stylebig/installation-guide">Installation Guide</a>
+  <a href="/stylebig/user-guide">User Guide</a>
+  <a href="/stylebig/terms-of-service">Terms of Service</a>
+  <a href="/stylebig/privacy-policy">Privacy Policy</a>
+</div>
+
+<header class="doc-hero">
+  <div class="grid-bg"></div>
+  <div class="shell">
+    <div class="crumb"><a href="/stylebig">StyleBig</a> <span>/</span> <span>Documentation</span></div>
+    <h1>User Guide</h1>
+    <p class="lede">StyleBig generates new product imagery from your existing photos using AI. This guide covers every studio tool, how credits and plans work, and where to review what you've generated.</p>
+  </div>
+</header>
+
+<main>
+  <div class="shell doc-layout">
+    <aside class="doc-toc">
+      <h4>On This Page</h4>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#products">The Products Page</a></li>
+        <li><a href="#tools">Studio Tools</a></li>
+        <li><a href="#credits">Credits</a></li>
+        <li><a href="#plans">Plan &amp; Credits Page</a></li>
+        <li><a href="#history">Generations History</a></li>
+        <li><a href="#uninstall">Uninstalling</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </aside>
+
+    <article class="prose">
+      <h2 id="overview">Overview</h2>
+      <p>StyleBig lives inside your BigCommerce admin. Pick a product, choose a studio tool, describe what you want, and StyleBig generates new imagery around your existing product photo — a lifestyle scene, a seasonal overlay, a model showcase, or a precise edit. Review each result and push it straight to that product's image gallery when you're happy with it.</p>
+
+      <h2 id="products">The Products Page</h2>
+      <p>When you open StyleBig, you land on the Products page — your BigCommerce catalogue, ready to work with. Select one or more products to bring them into a studio tool, or open the Generations page to review past results.</p>
+
+      <h2 id="tools">Studio Tools</h2>
+      <h3>Scene Studio</h3>
+      <p>Places your product into a styled lifestyle scene. Describe the setting you want, or start from a preset, choose a quality and resolution, and generate. Best for hero images and lifestyle listing photos.</p>
+      <h3>Holiday Overlay</h3>
+      <p>Builds a seasonal or holiday-themed visual around your product — useful for campaign creative tied to a specific date on the calendar without booking a new shoot every season.</p>
+      <h3>Model Showcase</h3>
+      <p>Shows a wearable or handheld product on an AI-generated model, giving flat-lay or mannequin photos real context and a sense of scale.</p>
+      <h3>Inpaint — Erase &amp; Regenerate</h3>
+      <p>Brush over the part of an existing photo you want removed — a stray reflection, a background object, an old logo — and StyleBig regenerates just that area to blend seamlessly with the rest of the image.</p>
+      <h3>Outpaint — Expand The Canvas</h3>
+      <p>Extends a photo outward past its original frame — turn a tightly-cropped square shot into a wide banner or tall hero image while keeping the original product intact.</p>
+
+      <h2 id="credits">Credits</h2>
+      <p>Every generation costs credits based on the quality level you choose, the same scale across every studio tool:</p>
+      <div class="doc-table-wrap">
+        <table class="doc-table">
+          <thead><tr><th>Quality</th><th>Cost</th></tr></thead>
+          <tbody>
+            <tr><td>Low</td><td>1 credit</td></tr>
+            <tr><td>Medium</td><td>1 credit</td></tr>
+            <tr><td>High</td><td>3 credits</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Credits are drawn from your monthly plan allowance first. If you're generating several images at once and don't have enough balance for all of them, StyleBig fulfills as many as it can afford in the order you selected them, rather than failing the whole batch.</p>
+
+      <h2 id="plans">Plan &amp; Credits Page</h2>
+      <p>Every store starts on a <strong>free trial</strong> — 10 credits, no plan required, so you can try every tool before subscribing. From the Plan &amp; Credits page you can:</p>
+      <ul>
+        <li>See your current plan, remaining monthly credits, and when they next renew</li>
+        <li>Upgrade to a higher plan for more monthly credits — Basic (50 credits/mo), Pro (100 credits/mo), or Business (500 credits/mo)</li>
+        <li>Review a full billing history of renewals, upgrades, and cancellations</li>
+        <li>Cancel your subscription — your remaining credits stay usable until they run out, you simply stop receiving new monthly credits</li>
+      </ul>
+      <div class="note">Every plan includes every studio tool. The only difference between plans is how many credits you get each month.</div>
+
+      <h2 id="history">Generations History</h2>
+      <p>The Generations page is a running log of every image you've created — which product it's tied to, which tool generated it, and how many credits it cost. Reopen any past result to push it to your product's live image gallery, or dismiss ones you don't want to keep.</p>
+
+      <h2 id="uninstall">Uninstalling</h2>
+      <p>To uninstall StyleBig, go to <strong>Apps</strong> in your BigCommerce control panel, find StyleBig, and click <strong>Uninstall</strong>. Your subscription is cancelled and your store data is removed from our systems — see the <a href="/stylebig/privacy-policy">Privacy Policy</a> for details.</p>
+
+      <h2 id="faq">Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">Does StyleBig change my original product photo?</div>
+        <p style="margin-bottom:0;">No. StyleBig always generates a new image — your original product photo is never overwritten. You choose whether to push a result into the product's image gallery.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What happens if I run out of credits mid-month?</div>
+        <p style="margin-bottom:0;">Generation stops until your credits renew at the start of your next billing cycle, or until you upgrade to a plan with a higher monthly allowance.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I use a photo that isn't already in my BigCommerce catalogue?</div>
+        <p style="margin-bottom:0;">Studio tools work from a product already in your catalogue. Custom uploads are supported in select tools — check the tool itself for an upload option.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do unused credits roll over to the next month?</div>
+        <p style="margin-bottom:0;">Monthly plan credits reset to your plan's allowance each billing cycle and don't carry over — use what you need for that month's generations.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I downgrade to a lower plan?</div>
+        <p style="margin-bottom:0;">Not directly — cancel your current subscription first, then subscribe to the lower plan you want. Your existing credits stay usable in the meantime.</p>
+      </div>
+
+      <div class="contact-card">
+        <span>Found a bug or have a feature request?</span>
+        <a href="/stylebig/feedback">Send feedback →</a>
+      </div>
+
+      <div class="contact-card">
+        <span>Still have questions?</span>
+        <a href="mailto:admin@aizlabs.com">admin@aizlabs.com</a>
+      </div>
+
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="shell">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <svg class="mark" viewBox="0 0 64 64" fill="none"><path d="M32 8 L58 50 H6 Z" stroke="url(#g2)" stroke-width="4"/><circle cx="32" cy="36" r="4" fill="#8B5CF6"/><defs><linearGradient id="g2" x1="6" y1="8" x2="58" y2="50"><stop stop-color="#3B82F6"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs></svg>
+          AI ZONE LABS
+        </a>
+        <p>StyleBig is a native BigCommerce app built by AI Zone Labs, turning product photos into AI-generated lifestyle scenes, holiday visuals, and model showcases.</p>
+      </div>
+      <div class="footer-col">
+        <h4>StyleBig</h4>
+        <ul>
+          <li><a href="/stylebig">Overview</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Documentation</h4>
+        <ul>
+          <li><a href="/stylebig/installation-guide">Installation Guide</a></li>
+          <li><a href="/stylebig/user-guide">User Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/stylebig/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/stylebig/terms-of-service">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 AI Zone Labs. All rights reserved.</span>
+      <span><a href="/" style="color:#93C5FD;">← Back to AI Zone Labs</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    const open = burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    burger.classList.remove('open'); mobileMenu.classList.remove('open'); burger.setAttribute('aria-expanded', 'false');
+  }));
+
+  const tocLinks = document.querySelectorAll('.doc-toc a');
+  const headings = [...tocLinks].map(a => document.querySelector(a.getAttribute('href')));
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const link = document.querySelector('.doc-toc a[href="#' + entry.target.id + '"]');
+      if (!link) return;
+      if (entry.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-96px 0px -70% 0px' });
+  headings.forEach(h => h && spy.observe(h));
+</script>
+
+</body>
+</html>
