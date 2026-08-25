@@ -39,8 +39,9 @@
   .intro p.punch{ font-family:var(--font-display); font-size:22px; color:var(--text); line-height:1.4; }
 
   .card-grid{ display:grid; grid-template-columns:1fr; gap:1px; background:#E5E7EB; border:1px solid #E5E7EB; border-radius:6px; overflow:hidden; }
+  @media (min-width:640px){ .card-grid.cols-2, .card-grid.cols-4{ grid-template-columns:repeat(2,1fr); } }
   @media (min-width:720px){ .card-grid.cols-3{ grid-template-columns:repeat(3,1fr); } }
-  @media (min-width:640px){ .card-grid.cols-2{ grid-template-columns:repeat(2,1fr); } }
+  @media (min-width:960px){ .card-grid.cols-4{ grid-template-columns:repeat(4,1fr); } }
   .info-card{ background:var(--surface); padding:30px 28px; }
   .info-card .tag{ font-family:var(--font-mono); font-size:11px; color:var(--secondary); letter-spacing:.1em; text-transform:uppercase; }
   .info-card .icon{
@@ -148,7 +149,7 @@
     <div class="shell reveal">
       <p>Great product photography sells — but a photo shoot for every scene, season, and use case is slow and expensive, and most merchants ship with whatever plain catalogue shot they started with.</p>
       <p class="punch">StyleBig closes that gap.</p>
-      <p>StyleBig is a native BigCommerce app that generates new, on-brand imagery from your existing product photos using AI — lifestyle scenes, seasonal overlays, and model showcases in seconds, plus precision tools to erase or extend any image. Review each result, then push it straight into your product's image gallery.</p>
+      <p>StyleBig is a native BigCommerce app that generates new, on-brand imagery using AI — lifestyle scenes, seasonal overlays, and model showcases built from your existing product photos, precision tools to erase or extend any image, and a Freestyle mode for standalone assets that need no product photo at all. Review each result, then push it straight into your product's image gallery.</p>
     </div>
   </section>
 
@@ -156,10 +157,10 @@
     <div class="shell">
       <div class="section-head reveal">
         <span class="eyebrow">What You Can Create</span>
-        <h2>Three Studio Tools, One Product Photo</h2>
-        <p>Pick a product from your catalogue and generate new imagery around it — StyleBig keeps the product itself intact and builds the rest with AI.</p>
+        <h2>Four Studio Tools, Endless New Imagery</h2>
+        <p>Pick a product from your catalogue and generate new imagery around it — or skip the catalogue entirely and create a standalone asset from scratch.</p>
       </div>
-      <div class="card-grid cols-3 reveal">
+      <div class="card-grid cols-4 reveal">
         <article class="info-card">
           <span class="tag">Scene Studio</span>
           <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 18 8 9l5 6 3-4 7 7"/><circle cx="18" cy="6" r="2.4"/></svg></div>
@@ -177,6 +178,12 @@
           <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
           <h3>Model Showcase</h3>
           <p>Show wearable or handheld products on an AI-generated model — a fast way to give a flat-lay product some real context and scale.</p>
+        </article>
+        <article class="info-card">
+          <span class="tag">Freestyle</span>
+          <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3 13.8 9.2 20 11 13.8 12.8 12 19 10.2 12.8 4 11 10.2 9.2 12 3Z"/><path d="M19 3v3M17.5 4.5h3"/></svg></div>
+          <h3>Freestyle — Create Any Image</h3>
+          <p>No product needed — write your own prompt, start from a preset, or hit Surprise Me to generate a model turnaround, backdrop, or promo graphic from scratch.</p>
         </article>
       </div>
     </div>
@@ -220,7 +227,7 @@
           <span class="credit-pill">High Quality — 3 credits</span>
         </div>
         <div class="flow-note">
-          <p><strong>Every plan includes every tool.</strong> Scene Studio, Holiday Overlay, Model Showcase, Inpaint, and Outpaint are all available on every plan — the only thing that changes between plans is how many credits you get each month.</p>
+          <p><strong>Every plan includes every tool.</strong> Scene Studio, Holiday Overlay, Model Showcase, Freestyle, Inpaint, and Outpaint are all available on every plan — the only thing that changes between plans is how many credits you get each month.</p>
         </div>
       </div>
 
