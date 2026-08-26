@@ -207,6 +207,13 @@ section{ position:relative; }
 .prose strong{ color:var(--text); font-weight:700; }
 .prose a{ color:var(--primary-dark); text-decoration:underline; text-underline-offset:2px; }
 
+/* Effective date on the legal pages — sits above the opening paragraph as
+   a quiet dateline, not another body paragraph competing with it. */
+.prose .doc-meta{
+  font-family:var(--font-mono); font-size:13px; color:var(--text-muted);
+  padding-bottom:16px; margin-bottom:24px; border-bottom:1px solid #E5E7EB;
+}
+
 .note{
   background:var(--surface-alt); border:1px solid #E5E7EB; border-left:3px solid var(--primary);
   padding:16px 18px; border-radius:0 4px 4px 0; margin:20px 0; font-size:14.5px; color:var(--text-muted);

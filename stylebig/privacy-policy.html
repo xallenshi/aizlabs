@@ -64,6 +64,7 @@
     </aside>
 
     <article class="prose">
+      <p class="doc-meta"><strong>Last updated:</strong> 26 August 2026</p>
       <p>AI Zone Labs (“we”, “us”, or “our”) operates the StyleBig application (the “App”). This Privacy Policy explains how we collect, use, and protect information when you install and use the App through the BigCommerce platform.</p>
 
       <h2 id="collect">Information We Collect</h2>
@@ -78,6 +79,7 @@
 
       <h2 id="images">Generated Images</h2>
       <p>Source product photos and AI-generated results are processed to fulfill your generation requests and are stored so you can review and reuse them from the Generations page. An image is only written to your BigCommerce product's public image gallery when you choose to push it there.</p>
+      <p>Images are stored on Vercel's storage platform at URLs that include a randomly generated component, so an image cannot be found by guessing its address. Anyone given the full URL can open it, so treat those links as private.</p>
 
       <h2 id="use">How We Use Your Information</h2>
       <p>We use the information collected solely to:</p>
@@ -91,16 +93,27 @@
       <p>We do not sell, rent, or share your data with third parties for marketing purposes.</p>
 
       <h2 id="retention">Data Retention</h2>
-      <p>Your store data (tokens, generation history, and billing records) is retained for as long as the App is installed on your store. When you uninstall the App from BigCommerce, your OAuth access is revoked and associated store data is deleted from our systems, subject to what we're required to retain for billing and legal record-keeping.</p>
+      <p>While the App is installed, your store data is retained so the App can function. When you uninstall StyleBig from BigCommerce, we immediately delete your OAuth access token (which BigCommerce has already revoked at that point) and the records linking your store and its users to the App. If a BigCommerce user is left with no remaining link to any store that has StyleBig installed, we delete their user record as well.</p>
+      <p>We do <strong>not</strong> delete everything on uninstall. The following is deliberately retained, so that reinstalling resumes where you left off instead of starting over:</p>
+      <ul>
+        <li><strong>Credit balance and plan tier</strong> — so credits you have already paid for are still yours if you reinstall, rather than being forfeited on uninstall.</li>
+        <li><strong>Trial record</strong> — a flag noting your store has already used its one free trial. This is what stops the trial from being claimed again and again by uninstalling and reinstalling.</li>
+        <li><strong>Generation history</strong> — the log of past generations (timestamp, tool, prompt, settings, credits charged) and the generated images themselves.</li>
+        <li><strong>Billing ledger</strong> — the record of credit grants, purchases, and usage, kept for billing accuracy and financial record-keeping.</li>
+      </ul>
+      <p>Retained data stays associated with your store hash. It is used only to restore your account if you reinstall and to meet our billing and record-keeping obligations, and it is never sold or shared for marketing.</p>
+      <p>If you would rather this data be erased than retained, email <a href="mailto:admin@aizlabs.com">admin@aizlabs.com</a> from an address associated with the store and we will delete it — including your generation history and stored images — within 30 days. Two things to know before requesting this: erasing your trial record means a future reinstall will not receive another free trial, and any unused credits are forfeited and cannot be restored afterwards.</p>
 
       <h2 id="security">Security</h2>
       <p>We use industry-standard security practices to protect your data, including encrypted database connections (TLS), environment-variable-based secret management, and scoped OAuth tokens.</p>
 
       <h2 id="third-party">Third-Party Services</h2>
-      <p>StyleBig relies on the following third-party services to operate:</p>
+      <p>StyleBig relies on the following third-party services to operate. Each one processes some of the data described above on our behalf:</p>
       <ul>
-        <li>OpenAI API (OpenAI, L.L.C.) — source photos and prompts are sent to OpenAI's image generation API to produce each result.</li>
-        <li>BigCommerce Unified Billing — processes your subscription payment; we never see or store your card details.</li>
+        <li><strong>OpenAI API</strong> (OpenAI, L.L.C.) — source photos and prompts are sent to OpenAI's image generation API to produce each result.</li>
+        <li><strong>BigCommerce Unified Billing</strong> — processes your subscription payment; we never see or store your card details.</li>
+        <li><strong>Vercel</strong> (Vercel Inc.) — hosts the App and stores generated images and their source photos.</li>
+        <li><strong>Neon</strong> (Neon Inc.) — provides the PostgreSQL database holding your store record, generation history, and billing ledger.</li>
       </ul>
       <p>Your use of these services is governed by their respective privacy policies.</p>
 
