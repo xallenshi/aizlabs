@@ -6,6 +6,11 @@
       "source": "/stylebig/feedback",
       "destination": "/stylebig/support",
       "permanent": true
+    },
+    {
+      "source": "/syncbig/feedback",
+      "destination": "/syncbig/support",
+      "permanent": true
     }
   ]
 }
