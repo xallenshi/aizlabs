@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EDE4D8"/><stop offset="100%" stop-color="#D3C4B2"/>
+    </linearGradient>
+    <linearGradient id="slab" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F6F3EE"/><stop offset="100%" stop-color="#DCD5CB"/>
+    </linearGradient>
+    <linearGradient id="glassA" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8F5B21"/><stop offset="34%" stop-color="#F0BC70"/>
+      <stop offset="60%" stop-color="#C9873C"/><stop offset="100%" stop-color="#7E4E1B"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.24" cy="0.14" r="0.72">
+      <stop offset="0%" stop-color="#FFE7BE" stop-opacity="0.92"/>
+      <stop offset="100%" stop-color="#FFE7BE" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="refl" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.20"/><stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="600" fill="url(#wall)"/>
+  <rect y="392" width="900" height="208" fill="url(#slab)"/>
+  <!-- marble veining -->
+  <g stroke="#B7ADA0" fill="none" opacity="0.55">
+    <path d="M0 452c120-26 210 16 330-6s210-40 330-14 190 8 240-4" stroke-width="2.2"/>
+    <path d="M0 512c150 20 250-22 372 2s232 34 348 10" stroke-width="1.4" opacity="0.7"/>
+    <path d="M120 392c40 44 30 92 76 124" stroke-width="1.2" opacity="0.55"/>
+    <path d="M700 396c-26 52-8 96-44 132" stroke-width="1.2" opacity="0.5"/>
+  </g>
+  <rect y="386" width="900" height="8" fill="#C6BBAC" opacity="0.75"/>
+
+  <!-- contact shadow, directional (light from upper-left) -->
+  <ellipse cx="490" cy="536" rx="150" ry="24" fill="#6B5C48" opacity="0.34"/>
+  <ellipse cx="470" cy="532" rx="96" ry="15" fill="#4E4132" opacity="0.30"/>
+
+  <g>
+    <rect x="404" y="150" width="92" height="34" rx="6" fill="#6B4B27"/>
+    <rect x="404" y="150" width="30" height="34" rx="6" fill="#8C6738" opacity="0.85"/>
+    <path d="M418 184h64v34c0 8 26 20 26 52v150c0 14-11 25-25 25h-66c-14 0-25-11-25-25V270c0-32 26-44 26-52z" fill="url(#glassA)"/>
+    <!-- specular highlight -->
+    <path d="M436 200c-9 16-14 40-14 74v146c0 8 4 13 11 13s10-5 10-13V274c0-34 3-58 9-74z" fill="#FFF3DE" opacity="0.42"/>
+    <rect x="392" y="300" width="116" height="74" rx="4" fill="#FBF7F0"/>
+    <rect x="408" y="322" width="84" height="7" rx="3.5" fill="#6E5B44"/>
+    <rect x="422" y="340" width="56" height="5" rx="2.5" fill="#A08D74"/>
+    <!-- reflection on the polished slab -->
+    <g transform="translate(0,1042) scale(1,-1)" opacity="0.24">
+      <path d="M418 184h64v34c0 8 26 20 26 52v150c0 14-11 25-25 25h-66c-14 0-25-11-25-25V270c0-32 26-44 26-52z" fill="url(#glassA)"/>
+    </g>
+    <rect x="380" y="446" width="220" height="86" fill="url(#refl)" opacity="0.5"/>
+  </g>
+
+  <!-- eucalyptus sprig, out of focus at the edge -->
+  <g opacity="0.62" fill="#7C8C6A">
+    <path d="M742 392c0-52 22-96 58-124" stroke="#7C8C6A" stroke-width="4" fill="none"/>
+    <ellipse cx="762" cy="330" rx="24" ry="15" transform="rotate(-32 762 330)"/>
+    <ellipse cx="790" cy="296" rx="22" ry="14" transform="rotate(-24 790 296)"/>
+    <ellipse cx="748" cy="366" rx="20" ry="13" transform="rotate(-42 748 366)"/>
+  </g>
+
+  <rect width="900" height="600" fill="url(#sun)"/>
+  <text x="24" y="578" font-family="monospace" font-size="15" fill="#8C8175" letter-spacing="2">PLACEHOLDER — REPLACE WITH A REAL STYLEBIG RESULT</text>
+</svg>

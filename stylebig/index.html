@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>StyleBig — AI Product Photography Studio for BigCommerce | AI Zone Labs</title>
-<meta name="description" content="StyleBig is a native BigCommerce app that turns plain product photos into lifestyle scenes, holiday overlays, and model showcases using AI — plus precision erase and expand tools, all inside your store admin." />
+<meta name="description" content="StyleBig turns the product photos you already have into studio, lifestyle, on-model and holiday images — inside your BigCommerce catalogue. One credit, one image. 20 free images, no credit card." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230A0E1A'/%3E%3Cpath d='M32 10 L54 46 H10 Z' fill='none' stroke='%233B82F6' stroke-width='4'/%3E%3Ccircle cx='32' cy='34' r='4' fill='%238B5CF6'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,6 +98,58 @@
   .cta h2{ font-size:clamp(28px,4vw,42px); line-height:1.15; }
   .cta p{ margin-top:16px; color:var(--on-ink-muted); font-size:16px; }
   .cta .hero-actions{ margin-top:32px; }
+
+  /* Drag-to-compare. The whole pitch is "your photo, re-shot", and a claim
+     like that is only believable if a visitor can move the divider themselves
+     — a static side-by-side reads as a curated marketing crop. Tokens are the
+     site's own (--radius, --ink-line, --primary); nothing new is introduced. */
+  .compare-wrap{ max-width:940px; margin:0 auto; }
+  .ba{
+    position:relative; width:100%; aspect-ratio:3/2; overflow:hidden;
+    border-radius:var(--radius); border:1px solid var(--ink-line);
+    background:var(--ink-raised); cursor:ew-resize; touch-action:pan-y;
+    user-select:none; box-shadow:0 24px 60px rgba(8,11,20,.28);
+  }
+  .ba img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+  /* clip-path, not a narrowing wrapper: a wrapper that shrinks also shrinks
+     the img inside it (width:100% resolves against the wrapper), squashing the
+     "before" photo as you drag. */
+  .ba-clip{ position:absolute; inset:0; will-change:clip-path; transition:clip-path .6s var(--ease); }
+  .ba.dragging .ba-clip{ transition:none; }
+  .ba-tag{
+    position:absolute; bottom:14px; font-family:var(--font-mono); font-size:11px;
+    letter-spacing:.12em; text-transform:uppercase; padding:6px 10px;
+    border-radius:var(--radius); background:rgba(8,11,20,.72); color:var(--on-ink);
+    border:1px solid var(--ink-line); backdrop-filter:blur(8px); pointer-events:none;
+  }
+  .ba-tag.left{ left:14px; color:var(--on-ink-muted); }
+  .ba-tag.right{ right:14px; color:#93C5FD; }
+  .ba-handle{
+    position:absolute; top:0; bottom:0; width:2px; background:#fff;
+    transform:translateX(-1px); box-shadow:0 0 18px rgba(59,130,246,.75);
+  }
+  .ba-handle:focus-visible{ outline:none; background:#93C5FD; box-shadow:0 0 0 2px var(--ink), 0 0 24px rgba(147,197,253,.95); }
+  .ba-grip{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:40px; height:40px; border-radius:50%; display:grid; place-items:center;
+    background:#fff; color:var(--ink); box-shadow:0 6px 20px rgba(8,11,20,.45);
+  }
+  .compare-caption{ margin-top:14px; text-align:center; font-size:14px; color:var(--text-muted); }
+
+  .faq-list{ display:grid; gap:10px; max-width:820px; margin:0 auto; }
+  .faq-item{ background:var(--surface); border:1px solid #E5E7EB; border-radius:6px; padding:18px 22px; }
+  .faq-item summary{
+    cursor:pointer; font-weight:500; font-size:16px; list-style:none;
+    display:flex; justify-content:space-between; gap:16px; color:var(--text);
+  }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary::after{ content:'+'; font-family:var(--font-mono); color:var(--primary); font-size:20px; line-height:1; }
+  .faq-item[open] summary::after{ content:'\2212'; }
+  .faq-item p{ margin-top:12px; color:var(--text-muted); font-size:15px; line-height:1.65; }
+
+  @media (prefers-reduced-motion: reduce){
+    .ba-clip{ transition:none; }
+  }
 </style>
 </head>
 <body>
@@ -109,9 +161,10 @@
       AI ZONE LABS <span class="sub">StyleBig</span>
     </a>
     <div class="nav-links">
+      <a href="#how">How It Works</a>
       <a href="#create">What You Can Create</a>
-      <a href="#tools">Editing Tools</a>
-      <a href="#credits">Credits &amp; Plans</a>
+      <a href="#credits">Plans</a>
+      <a href="#faq">FAQ</a>
       <a href="/stylebig/user-guide">User Guide</a>
     </div>
     <a href="/stylebig/support" class="btn btn-ghost nav-cta">Support →</a>
@@ -121,9 +174,10 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="/">AI Zone Labs</a>
+  <a href="#how">How It Works</a>
   <a href="#create">What You Can Create</a>
-  <a href="#tools">Editing Tools</a>
-  <a href="#credits">Credits &amp; Plans</a>
+  <a href="#credits">Plans</a>
+  <a href="#faq">FAQ</a>
   <a href="/stylebig/user-guide">User Guide</a>
   <a href="/stylebig/support" class="btn btn-primary">Support</a>
 </div>
@@ -134,14 +188,38 @@
     <div class="shell">
       <div class="hero-inner">
         <span class="eyebrow">A BigCommerce App by AI Zone Labs</span>
-        <h1>Product Photos, <span class="grad-text">Reimagined by AI.</span></h1>
-        <p class="lede">StyleBig turns a single plain product photo into lifestyle scenes, holiday-themed visuals, and model showcases — right inside your BigCommerce admin, with no photographer, no design software, and no code.</p>
+        <h1>Your Product Photos, <span class="grad-text">Re-Shot In Seconds.</span></h1>
+        <p class="lede">StyleBig turns the photos you already have into studio, lifestyle, on-model and holiday images — inside your BigCommerce catalogue. No photographer, no exports, no re-uploads.</p>
         <div class="hero-actions">
-          <a href="/stylebig/installation-guide" class="btn btn-primary">See How to Install →</a>
-          <a href="/stylebig/user-guide" class="btn btn-ghost">Read The User Guide</a>
+          <a href="/stylebig/installation-guide" class="btn btn-primary">Start With 20 Free Images →</a>
+          <a href="#how" class="btn btn-ghost">See How It Works</a>
         </div>
+        <p style="margin-top:16px; font-size:14px; color:var(--on-ink-muted);">No credit card. Cancel from your BigCommerce admin any time.</p>
       </div>
       <div class="hero-pad"></div>
+    </div>
+  </section>
+
+  <section class="section-pad" id="compare" style="padding-top:56px;">
+    <div class="shell reveal">
+      <div class="compare-wrap">
+        <div class="ba" id="ba">
+          <img src="/assets/stylebig-after.svg" alt="A product photo regenerated by StyleBig onto a sunlit marble surface" draggable="false" />
+          <div class="ba-clip" id="baClip">
+            <img src="/assets/stylebig-before.svg" alt="" aria-hidden="true" draggable="false" />
+          </div>
+          <span class="ba-tag left">Original</span>
+          <span class="ba-tag right">StyleBig</span>
+          <div class="ba-handle" id="baHandle" role="slider" tabindex="0"
+               aria-label="Compare the original photo with the StyleBig result"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <span class="ba-grip" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7 4L3.5 9L7 14M11 4L14.5 9L11 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+        <p class="compare-caption">Drag to compare. Same product, same photo — one generation apart.</p>
+      </div>
     </div>
   </section>
 
@@ -150,6 +228,34 @@
       <p>Great product photography sells — but a photo shoot for every scene, season, and use case is slow and expensive, and most merchants ship with whatever plain catalogue shot they started with.</p>
       <p class="punch">StyleBig closes that gap.</p>
       <p>StyleBig is a native BigCommerce app that generates new, on-brand imagery using AI — lifestyle scenes, seasonal overlays, and model showcases built from your existing product photos, precision tools to erase or extend any image, and a Freestyle mode for standalone assets that need no product photo at all. Review each result, then push it straight into your product's image gallery.</p>
+      <p>Every other AI photo tool asks you to leave your store, do the work somewhere else, and carry the results back by hand. StyleBig runs where your catalogue already lives.</p>
+    </div>
+  </section>
+
+  <section class="section-pad" id="how" style="background:var(--surface-alt);">
+    <div class="shell">
+      <div class="section-head reveal">
+        <span class="eyebrow">How It Works</span>
+        <h2>Three Steps, And None Of Them Are &ldquo;Download&rdquo;</h2>
+        <p>Pick, generate, save. Results go back onto the product they came from — no export, no re-upload, no second library to keep in sync.</p>
+      </div>
+      <div class="card-grid cols-3 reveal">
+        <article class="info-card">
+          <span class="tag">Step 01</span>
+          <h3>Pick From Your Catalogue</h3>
+          <p>Browse your real category tree and select one product or forty. No CSV, no manual uploads, no separate media library to maintain.</p>
+        </article>
+        <article class="info-card">
+          <span class="tag">Step 02</span>
+          <h3>Choose A Look</h3>
+          <p>Start from a preset — a scene, a holiday, a model setting — or write your own prompt. Generate the whole selection at once.</p>
+        </article>
+        <article class="info-card">
+          <span class="tag">Step 03</span>
+          <h3>Save Back To The Product</h3>
+          <p>One click writes the result into that product's BigCommerce image gallery. Nothing reaches your storefront until you choose it.</p>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -157,7 +263,7 @@
     <div class="shell">
       <div class="section-head reveal">
         <span class="eyebrow">What You Can Create</span>
-        <h2>Four Studio Tools, Endless New Imagery</h2>
+        <h2>Four Studio Tools, 58 Presets To Start From</h2>
         <p>Pick a product from your catalogue and generate new imagery around it — or skip the catalogue entirely and create a standalone asset from scratch.</p>
       </div>
       <div class="card-grid cols-4 reveal">
@@ -165,25 +271,25 @@
           <span class="tag">Scene Studio</span>
           <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 18 8 9l5 6 3-4 7 7"/><circle cx="18" cy="6" r="2.4"/></svg></div>
           <h3>Scene Studio</h3>
-          <p>Place a product into a styled lifestyle scene — describe the setting, or start from a preset, and StyleBig builds the backdrop around it.</p>
+          <p>Place a product into a styled lifestyle scene. Start from one of <strong>19 presets</strong> — marble, weathered wood, sunlit kitchen, coastal beach, velvet pedestal — or describe the setting yourself.</p>
         </article>
         <article class="info-card">
           <span class="tag">Holiday Overlay</span>
           <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v4M4.9 4.9l2.8 2.8M2 12h4M17.3 7.7l2.8-2.8M12 22v-8M8 22h8"/><path d="M12 14a6 6 0 0 0 6-6c0-1-3-6-6-6S6 7 6 8a6 6 0 0 0 6 6Z"/></svg></div>
           <h3>Holiday Overlay</h3>
-          <p>Drop a product into a seasonal or holiday-themed visual — built for campaign creative that changes with the calendar, without a new shoot each time.</p>
+          <p>Drop a product into a seasonal visual with <strong>14 presets</strong> — Black Friday, Christmas, Halloween, Lunar New Year, Diwali, Eid and more — for campaign creative that changes with the calendar.</p>
         </article>
         <article class="info-card">
           <span class="tag">Model Showcase</span>
           <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
           <h3>Model Showcase</h3>
-          <p>Show wearable or handheld products on an AI-generated model — a fast way to give a flat-lay product some real context and scale.</p>
+          <p>Show wearable or handheld products on an AI-generated model across <strong>15 settings</strong> — studio portrait, urban street, editorial, athletic, business, beach resort and more.</p>
         </article>
         <article class="info-card">
           <span class="tag">Freestyle</span>
           <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3 13.8 9.2 20 11 13.8 12.8 12 19 10.2 12.8 4 11 10.2 9.2 12 3Z"/><path d="M19 3v3M17.5 4.5h3"/></svg></div>
           <h3>Freestyle — Create Any Image</h3>
-          <p>No product needed — write your own prompt, start from a preset, or hit Surprise Me to generate a model turnaround, backdrop, or promo graphic from scratch.</p>
+          <p>No product needed — <strong>10 presets</strong> covering backdrops, flat-lay surfaces, sale posters, social promos and a 3-view model turnaround, plus your own prompts and Surprise Me.</p>
         </article>
       </div>
     </div>
@@ -213,21 +319,47 @@
     </div>
   </section>
 
+  <section class="section-pad" id="seasonal">
+    <div class="shell">
+      <div class="section-head reveal">
+        <span class="eyebrow">Built For Q4</span>
+        <h2>Black Friday Doesn&rsquo;t Wait For Your Photographer</h2>
+        <p>Holiday Overlay re-themes your existing product photos for 14 seasonal moments. Re-dress a whole category on Sunday night and have it live Monday morning — then roll it back just as fast when the sale ends.</p>
+      </div>
+      <div class="reveal">
+        <div class="credit-row">
+          <span class="credit-pill">Black Friday</span>
+          <span class="credit-pill">Christmas</span>
+          <span class="credit-pill">Halloween</span>
+          <span class="credit-pill">Thanksgiving</span>
+          <span class="credit-pill">Lunar New Year</span>
+          <span class="credit-pill">Diwali</span>
+          <span class="credit-pill">Eid al-Fitr</span>
+          <span class="credit-pill">Valentine&rsquo;s Day</span>
+          <span class="credit-pill">Mother&rsquo;s Day</span>
+          <span class="credit-pill">Hanukkah</span>
+          <span class="credit-pill">Easter</span>
+          <span class="credit-pill">Summer Sale</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section-pad credits-band" id="credits">
     <div class="shell">
       <div class="section-head reveal">
         <span class="eyebrow">How Credits Work</span>
-        <h2>Priced By Quality, Not By Tool</h2>
-        <p>Every generation costs credits based on the quality level you choose — every studio tool and resolution uses the same simple scale.</p>
+        <h2>One Credit, One Image</h2>
+        <p>No quality tiers to decode and no generations that quietly cost more than others. Every image costs exactly one credit, whichever tool made it — so a plan's credit count is simply how many images you get.</p>
       </div>
       <div class="reveal">
         <div class="credit-row">
-          <span class="credit-pill">Low Quality — 1 credit</span>
-          <span class="credit-pill">Medium Quality — 1 credit</span>
-          <span class="credit-pill">High Quality — 3 credits</span>
+          <span class="credit-pill">Any tool — 1 credit</span>
+          <span class="credit-pill">Any size — 1 credit</span>
+          <span class="credit-pill">Failed generation — refunded</span>
         </div>
         <div class="flow-note">
-          <p><strong>Every plan includes every tool.</strong> Scene Studio, Holiday Overlay, Model Showcase, Freestyle, Inpaint, and Outpaint are all available on every plan — the only thing that changes between plans is how many credits you get each month.</p>
+          <p><strong>Every plan includes every tool.</strong> Scene Studio, Holiday Overlay, Model Showcase, Freestyle, Inpaint, and Outpaint are all available on every plan — the only thing that changes between plans is how many images you get each month.</p>
         </div>
       </div>
 
@@ -236,23 +368,24 @@
           <span class="badge">Basic</span>
           <h3>Basic</h3>
           <div class="plan-price">$9.90<span>/mo</span></div>
-          <p class="desc">50 credits every month — a solid starting point for a store that generates new imagery a few times a week.</p>
+          <p class="desc">200 images every month — a solid starting point for a store that refreshes its imagery a few times a week.</p>
         </article>
         <article class="plan-card">
           <span class="badge">Most Popular</span>
           <h3>Pro</h3>
           <div class="plan-price">$18.90<span>/mo</span></div>
-          <p class="desc">100 credits every month — built for stores running regular campaigns across multiple product lines.</p>
+          <p class="desc">450 images every month — built for stores running regular campaigns across multiple product lines.</p>
         </article>
         <article class="plan-card">
           <span class="badge">Business</span>
           <h3>Business</h3>
           <div class="plan-price">$79.90<span>/mo</span></div>
-          <p class="desc">500 credits every month — for catalogues that need fresh visuals across a large, fast-moving product range.</p>
+          <p class="desc">2,000 images every month — enough to re-shoot a large catalogue end to end, every season.</p>
         </article>
       </div>
       <div class="flow-note">
-        <p>Every store starts with a <strong>free trial</strong> of 10 credits, no plan required, so you can try every tool before you subscribe.</p>
+        <p>Every store starts with a <strong>free trial of 20 images</strong>, no plan and no card required, so you can try every tool before you subscribe. Billing runs through BigCommerce itself, so there is no separate account or card on file with us.</p>
+        <p style="margin-top:12px;">Your first billing period is <strong>prorated</strong>: BigCommerce aligns the subscription to your store's own billing date and charges only for the days remaining, and your credits for that period are prorated to match. The full monthly allowance arrives from the next renewal onwards.</p>
       </div>
     </div>
   </section>
@@ -277,13 +410,48 @@
     </div>
   </section>
 
+  <section class="section-pad" id="faq" style="background:var(--surface-alt);">
+    <div class="shell">
+      <div class="section-head reveal">
+        <span class="eyebrow">Questions</span>
+        <h2>The Things Merchants Actually Ask</h2>
+      </div>
+      <div class="faq-list reveal">
+        <details class="faq-item">
+          <summary>Do I need to upload my photos anywhere?</summary>
+          <p>No. StyleBig reads your BigCommerce catalogue directly — you browse categories, pick products, and generate. Results save straight back onto the product. There is no export, no re-upload, and no separate library to keep in sync.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What happens to my product images?</summary>
+          <p>They are sent to OpenAI for processing and the generated result is stored so it can appear in your history. Your images are never used to train a model and are never shared with other merchants.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What counts as a credit?</summary>
+          <p>One generated image, whichever tool made it. There are no quality tiers and no generations that cost more than others. A generation that fails is refunded automatically — you are never charged for an image you did not get.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do unused credits roll over?</summary>
+          <p>Monthly credits reset at the start of each billing cycle, so a plan is a monthly allowance rather than a balance that accumulates. If you consistently run out before the month is up, the next plan up is the answer — you can upgrade at any time and the new allowance applies immediately.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Why was my first charge smaller than the plan price?</summary>
+          <p>BigCommerce aligns an app subscription to your store's own billing date and charges only for the days remaining in that period. Your credits for that first partial period are prorated to match, and the full monthly allowance arrives on the next renewal.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I cancel?</summary>
+          <p>Any time, from your BigCommerce control panel. Billing runs through BigCommerce itself, so there is no separate account or card on file with us, and credits you have already been granted stay usable.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <section class="section-pad cta">
     <div class="shell cta-inner">
       <span class="eyebrow" style="justify-content:center; color:#93C5FD;">Built For Merchants</span>
-      <h2 style="margin-top:18px;">Give Every Product Photo A Second Life.</h2>
-      <p>StyleBig is built for merchants who want new, on-brand product imagery without booking a photographer or opening a design tool — generated in seconds, reviewed by you, pushed live when you're ready.</p>
+      <h2 style="margin-top:18px;">You Already Own The Photos.</h2>
+      <p>Find out in ten minutes what they could look like. Twenty free images, no card, no commitment — generated in seconds, reviewed by you, pushed live only when you're ready.</p>
       <div class="hero-actions">
-        <a href="/stylebig/installation-guide" class="btn btn-primary">Install StyleBig →</a>
+        <a href="/stylebig/installation-guide" class="btn btn-primary">Install StyleBig — 20 Free Images →</a>
         <a href="/stylebig/user-guide" class="btn btn-ghost">Explore The User Guide</a>
       </div>
     </div>
@@ -304,9 +472,10 @@
         <h4>StyleBig</h4>
         <ul>
           <li><a href="/stylebig">Overview</a></li>
+          <li><a href="#how">How It Works</a></li>
           <li><a href="#create">What You Can Create</a></li>
-          <li><a href="#tools">Editing Tools</a></li>
-          <li><a href="#credits">Credits &amp; Plans</a></li>
+          <li><a href="#credits">Plans &amp; Credits</a></li>
+          <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -354,6 +523,59 @@
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Before/after slider. Pointer Events so mouse, touch and pen take one code
+  // path, with setPointerCapture keeping a drag alive when the cursor leaves
+  // the element mid-swipe. Masked with clip-path rather than by narrowing a
+  // wrapper — a shrinking wrapper also shrinks the img inside it, squashing
+  // the "before" photo as you drag.
+  (function () {
+    const ba = document.getElementById('ba');
+    if (!ba) return;
+    const clip = document.getElementById('baClip');
+    const handle = document.getElementById('baHandle');
+    let dragging = false;
+
+    function set(pct) {
+      const v = Math.min(100, Math.max(0, pct));
+      clip.style.clipPath = 'inset(0 ' + (100 - v) + '% 0 0)';
+      handle.style.left = v + '%';
+      handle.setAttribute('aria-valuenow', Math.round(v));
+      handle.setAttribute('aria-valuetext', Math.round(v) + '% original');
+    }
+    function fromX(clientX) {
+      const r = ba.getBoundingClientRect();
+      if (!r.width) return;
+      set(((clientX - r.left) / r.width) * 100);
+    }
+
+    // A pointerdown anywhere on the image jumps the divider there before the
+    // drag starts — clicking the far side to peek is the instinct most people
+    // have, and making them find the 2px handle first reads as broken.
+    ba.addEventListener('pointerdown', e => {
+      ba.setPointerCapture(e.pointerId);
+      dragging = true; ba.classList.add('dragging'); fromX(e.clientX);
+    });
+    ba.addEventListener('pointermove', e => { if (dragging) fromX(e.clientX); });
+    ['pointerup', 'pointercancel'].forEach(evt => ba.addEventListener(evt, e => {
+      if (ba.hasPointerCapture(e.pointerId)) ba.releasePointerCapture(e.pointerId);
+      dragging = false; ba.classList.remove('dragging');
+    }));
+
+    handle.addEventListener('keydown', e => {
+      const step = e.shiftKey ? 10 : 2;
+      const now = parseFloat(handle.getAttribute('aria-valuenow')) || 50;
+      if (e.key === 'ArrowLeft') { e.preventDefault(); set(now - step); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); set(now + step); }
+      if (e.key === 'Home') { e.preventDefault(); set(0); }
+      if (e.key === 'End') { e.preventDefault(); set(100); }
+    });
+
+    set(50);
+    // Nudges off-centre once, shortly after load, purely to signal that this
+    // moves. Without it the control reads as a static split image.
+    setTimeout(() => set(58), 900);
+  })();
 </script>
 
 </body>
