@@ -137,6 +137,16 @@ section{ position:relative; }
 .section-head h2{ font-size:clamp(28px,3.6vw,40px); line-height:1.15; }
 .section-head p{ margin-top:16px; color:var(--text-muted); font-size:16px; max-width:560px; }
 
+/* Centred variant, for a section that reads as a symmetric gallery rather
+   than the usual left rail. text-align alone is not enough and was the bug
+   this replaces: .section-head is a 640px block, so centring only its text
+   leaves the centred lines sitting in the left 640px of a 1064px row, which
+   reads as misaligned against the full-width grid underneath. The auto
+   margins are the half that actually centres it. */
+.section-head.center{ margin-inline:auto; text-align:center; }
+.section-head.center .eyebrow{ justify-content:center; }
+.section-head.center p{ margin-inline:auto; }
+
 .reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
 .reveal.in-view{ opacity:1; transform:translateY(0); }
 
