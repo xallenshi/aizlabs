@@ -11,7 +11,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Roboto:wght@300;400;500;700;900&family=Anonymous+Pro:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/aizlabs.css">
 <style>
-  .fb-page{ padding:64px 0 100px; }
+  /* padding-block, not the shorthand — this element also carries .shell,
+     whose padding-inline the shorthand's 0 would reset (see .doc-layout). */
+  .fb-page{ padding-block:64px 100px; }
   .fb-form{ max-width:620px; margin:0 auto; }
   .fb-field{ margin-bottom:20px; }
   .fb-field label{ display:block; font-family:var(--font-mono); font-size:12.5px; letter-spacing:.04em; color:var(--text); margin-bottom:7px; }

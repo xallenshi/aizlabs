@@ -132,10 +132,10 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:400; letter-spacing:.01em
 /* ---------- section scaffolding ---------- */
 section{ position:relative; }
 .section-pad{ padding:88px 0; }
-.section-head{ max-width:640px; margin-bottom:52px; }
+.section-head{ margin-bottom:52px; }
 .section-head .eyebrow{ color:var(--primary-dark); margin-bottom:16px; }
 .section-head h2{ font-size:clamp(28px,3.6vw,40px); line-height:1.15; }
-.section-head p{ margin-top:16px; color:var(--text-muted); font-size:16px; max-width:560px; }
+.section-head p{ margin-top:16px; color:var(--text-muted); font-size:16px; }
 
 /* Centred variant, for a section that reads as a symmetric gallery rather
    than the usual left rail. text-align alone is not enough and was the bug
@@ -143,7 +143,7 @@ section{ position:relative; }
    leaves the centred lines sitting in the left 640px of a 1064px row, which
    reads as misaligned against the full-width grid underneath. The auto
    margins are the half that actually centres it. */
-.section-head.center{ margin-inline:auto; text-align:center; }
+.section-head.center{ max-width:640px; margin-inline:auto; text-align:center; }
 .section-head.center .eyebrow{ justify-content:center; }
 .section-head.center p{ margin-inline:auto; }
 
@@ -169,10 +169,13 @@ section{ position:relative; }
 }
 .doc-hero .crumb a{ color:#93C5FD; }
 .doc-hero .crumb a:hover{ text-decoration:underline; }
-.doc-hero h1{ font-size:clamp(30px,4.4vw,46px); line-height:1.15; max-width:760px; }
-.doc-hero p.lede{ margin-top:16px; max-width:640px; color:var(--on-ink-muted); font-size:16px; }
+.doc-hero h1{ font-size:clamp(30px,4.4vw,46px); line-height:1.15; }
+.doc-hero p.lede{ margin-top:16px; color:var(--on-ink-muted); font-size:16px; }
 
-.doc-layout{ display:grid; grid-template-columns:1fr; gap:48px; padding:64px 0 100px; }
+/* padding-block, not the padding shorthand: this element also carries
+   .shell, and the shorthand's 0 was resetting .shell's padding-inline,
+   putting the TOC and body 48px outside the rail .doc-hero sits on. */
+.doc-layout{ display:grid; grid-template-columns:1fr; gap:48px; padding-block:64px 100px; }
 @media (min-width:960px){ .doc-layout{ grid-template-columns:220px 1fr; } }
 
 .doc-toc{ display:none; }
@@ -187,7 +190,7 @@ section{ position:relative; }
   .doc-toc a:hover, .doc-toc a.active{ color:var(--primary-dark); border-left-color:var(--primary); }
 }
 
-.prose{ max-width:720px; }
+.prose{ /* no width cap — the doc grid's content column already bounds it */ }
 .prose h2{
   font-family:var(--font-body); font-weight:700; font-size:22px; color:var(--text);
   margin-top:48px; margin-bottom:14px; scroll-margin-top:96px;
