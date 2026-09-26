@@ -2,14 +2,25 @@
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18476211754"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag("js", new Date());
 
+  // Consent Mode v2 -- denied by default until the visitor chooses in the
+  // cookie banner (../assets/consent.js). Must run before gtag.js loads.
+  gtag("consent", "default", {
+    "ad_storage": "denied",
+    "ad_user_data": "denied",
+    "ad_personalization": "denied",
+    "analytics_storage": "denied",
+    "wait_for_update": 500
+  });
+
+  gtag("js", new Date());
   gtag("config", "AW-18476211754");
 </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18476211754"></script>
+<script src="../assets/consent.js" defer></script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>StyleBig — Terms of Service | AI Zone Labs</title>
@@ -170,6 +181,7 @@
         <ul>
           <li><a href="/stylebig/privacy-policy">Privacy Policy</a></li>
           <li><a href="/stylebig/terms-of-service">Terms of Service</a></li>
+          <li><a href="#" data-cookie-settings>Cookie Settings</a></li>
         </ul>
       </div>
     </div>
