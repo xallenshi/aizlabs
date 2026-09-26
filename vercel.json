@@ -11,6 +11,16 @@
       "source": "/syncbig/feedback",
       "destination": "/syncbig/support",
       "permanent": true
+    },
+    {
+      "source": "/stylebig/bigcommerce",
+      "destination": "/stylebig",
+      "statusCode": 301
+    },
+    {
+      "source": "/StyleBig/BigCommerce",
+      "destination": "/stylebig",
+      "statusCode": 301
     }
   ]
 }

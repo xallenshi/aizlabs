@@ -20,6 +20,16 @@
   gtag("config", "AW-18476211754");
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18476211754"></script>
+<script>
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('a[href*="bigcommerce.com/apps/stylebig"]');
+    if (!link) return;
+    gtag('event', 'conversion', {
+      send_to: 'AW-18476211754/DKVdCPXvroYdEKq8kupE',
+      transport_type: 'beacon'
+    });
+  });
+</script>
 <script src="../assets/consent.js" defer></script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
