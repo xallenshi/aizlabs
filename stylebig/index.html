@@ -34,7 +34,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>StyleBig — AI Product Photography Studio for BigCommerce | AI Zone Labs</title>
-<meta name="description" content="StyleBig turns the product photos you already have into studio, lifestyle, on-model and holiday images — inside your BigCommerce catalogue. One credit, one image. 20 free images, no credit card." />
+<meta name="description" content="Seven AI image tools for BigCommerce: scenes, model showcases, holidays, image text translation into 20 languages, Freestyle and precision edits. One credit per image." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230A0E1A'/%3E%3Cpath d='M32 10 L54 46 H10 Z' fill='none' stroke='%233B82F6' stroke-width='4'/%3E%3Ccircle cx='32' cy='34' r='4' fill='%238B5CF6'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,6 +91,9 @@
   @media (min-width:640px){ .card-grid.cols-2, .card-grid.cols-4{ grid-template-columns:repeat(2,1fr); } }
   @media (min-width:720px){ .card-grid.cols-3{ grid-template-columns:repeat(3,1fr); } }
   @media (min-width:960px){ .card-grid.cols-4{ grid-template-columns:repeat(4,1fr); } }
+  @media (min-width:640px){ .studio-grid{ grid-template-columns:repeat(2,1fr); } .studio-grid > :last-child{ grid-column:1 / -1; } }
+  @media (min-width:960px){ .studio-grid{ grid-template-columns:repeat(6,1fr); } .studio-grid > .info-card{ grid-column:span 2; } .studio-grid > .info-card:nth-child(n+4){ grid-column:span 3; } }
+  #create .btn{ max-width:100%; white-space:normal; text-align:center; }
   .info-card{ background:var(--surface); padding:30px 28px; }
   .info-card .tag{ font-family:var(--font-mono); font-size:11px; color:var(--secondary); letter-spacing:.1em; text-transform:uppercase; }
   .info-card .icon{
@@ -261,7 +264,7 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>
           Approved &amp; Published on the BigCommerce App Marketplace
         </a>
-        <p class="lede">StyleBig turns the photos you already have into studio, lifestyle, on-model and holiday images — inside your BigCommerce catalogue. No photographer, no exports, no re-uploads.</p>
+        <p class="lede">Create studio, lifestyle, on-model and holiday images, or translate the text in your product photos into 20 languages — inside your BigCommerce catalogue. Use your own background or model references to guide the result.</p>
         <div class="hero-actions">
           <a href="https://www.bigcommerce.com/apps/stylebig/" class="btn btn-primary">Install StyleBig — 20 Free Images →</a>
         </div>
@@ -342,7 +345,7 @@
     <div class="shell reveal">
       <p>Great product photography sells — but a photo shoot for every scene, season, and use case is slow and expensive, and most merchants ship with whatever plain catalogue shot they started with.</p>
       <p class="punch">StyleBig closes that gap.</p>
-      <p>StyleBig is a native BigCommerce app that generates new, on-brand imagery using AI — lifestyle scenes, seasonal overlays, and model showcases built from your existing product photos, precision tools to erase or extend any image, and a Freestyle mode for standalone assets that need no product photo at all. Review each result, then push it straight into your product's image gallery.</p>
+      <p>StyleBig is a native BigCommerce app that generates new, on-brand imagery using AI — lifestyle scenes, seasonal overlays, model showcases and translated image text built from your existing product photos, precision tools to erase or extend any image, and a Freestyle mode for standalone assets that need no product photo at all. Review each result, then push it straight into your product's image gallery.</p>
       <p>Every other AI photo tool asks you to leave your store, do the work somewhere else, and carry the results back by hand. StyleBig runs where your catalogue already lives.</p>
     </div>
   </section>
@@ -363,7 +366,7 @@
         <article class="info-card">
           <span class="tag">Step 02</span>
           <h3>Choose A Look</h3>
-          <p>Start from a preset — a scene, a holiday, a model setting — or write your own prompt. Generate the whole selection at once.</p>
+          <p>Choose a scene, holiday or model preset, upload a reference where supported, or select a target language to translate image text. Adjust the prompt and generate the whole selection at once.</p>
         </article>
         <article class="info-card">
           <span class="tag">Step 03</span>
@@ -378,15 +381,15 @@
     <div class="shell">
       <div class="section-head reveal">
         <span class="eyebrow">What You Can Create</span>
-        <h2>Four Studio Tools, 58 Presets To Start From</h2>
-        <p>Pick a product from your catalogue and generate new imagery around it — or skip the catalogue entirely and create a standalone asset from scratch.</p>
+        <h2>Seven Tools. 58 Presets. 20 Languages.</h2>
+        <p>Create scenes, showcase products on a model, translate image text and make precise edits. Start from your catalogue, use your own references, or create a standalone asset with Freestyle.</p>
       </div>
-      <div class="card-grid cols-4 reveal">
+      <div class="card-grid studio-grid reveal">
         <article class="info-card">
           <span class="tag">Scene Studio</span>
           <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 18 8 9l5 6 3-4 7 7"/><circle cx="18" cy="6" r="2.4"/></svg></div>
           <h3>Scene Studio</h3>
-          <p>Place a product into a styled lifestyle scene. Start from one of <strong>19 presets</strong> — marble, weathered wood, sunlit kitchen, coastal beach, velvet pedestal — or describe the setting yourself.</p>
+          <p>Place a product into a styled lifestyle scene. Start from one of <strong>19 presets</strong> — marble, weathered wood, sunlit kitchen, coastal beach, velvet pedestal — or describe the setting yourself. Upload your own background image to guide the scene.</p>
         </article>
         <article class="info-card">
           <span class="tag">Holiday Overlay</span>
@@ -398,17 +401,23 @@
           <span class="tag">Model Showcase</span>
           <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
           <h3>Model Showcase</h3>
-          <p>Show wearable or handheld products on an AI-generated model across <strong>15 settings</strong> — studio portrait, urban street, editorial, athletic, business, beach resort and more.</p>
+          <p>Show wearable or handheld products on an AI-generated model across <strong>15 settings</strong> — studio portrait, urban street, editorial, athletic, business, beach resort and more. Upload a model photo to show your product on the person you choose.</p>
+        </article>
+        <article class="info-card" id="language-conversion">
+          <span class="tag">Language Conversion · New</span>
+          <div class="icon"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h12M9 3v2M6 5c0 5 3 8 7 10M13 5c0 5-3 8-7 10M14 21l4-10 4 10M15.5 17h5"/></svg></div>
+          <h3>Language Conversion</h3>
+          <p>Translate readable text on packaging, labels and product surfaces into <strong>20 target languages</strong>. Choose a language and refine the ready-made prompt if needed. Designed to fit translated text into the original area while keeping the product and scene intact.</p>
         </article>
         <article class="info-card">
           <span class="tag">Freestyle</span>
           <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3 13.8 9.2 20 11 13.8 12.8 12 19 10.2 12.8 4 11 10.2 9.2 12 3Z"/><path d="M19 3v3M17.5 4.5h3"/></svg></div>
           <h3>Freestyle — Create Any Image</h3>
-          <p>No product needed — <strong>10 presets</strong> covering backdrops, flat-lay surfaces, sale posters, social promos and a 3-view model turnaround, plus your own prompts and Surprise Me.</p>
+          <p>No product needed — <strong>10 presets</strong> covering backdrops, flat-lay surfaces, sale posters, social promos and a 3-view model turnaround, plus your own prompts and Surprise Me. Add an optional reference: a person for model turnarounds, or an environment and style for backdrops.</p>
         </article>
       </div>
       <div class="reveal" style="text-align:center; margin-top:36px;">
-        <a href="https://www.bigcommerce.com/apps/stylebig/" class="btn btn-outline-dark">Try All 58 Presets — Install On BigCommerce →</a>
+        <a href="https://www.bigcommerce.com/apps/stylebig/" class="btn btn-outline-dark">Try All Seven Tools — Install On BigCommerce →</a>
       </div>
     </div>
   </section>
@@ -477,7 +486,7 @@
           <span class="credit-pill">Failed generation — refunded</span>
         </div>
         <div class="flow-note">
-          <p><strong>Every plan includes every tool.</strong> Scene Studio, Holiday Overlay, Model Showcase, Freestyle, Inpaint, and Outpaint are all available on every plan — the only thing that changes between plans is how many images you get each month.</p>
+          <p><strong>Every plan includes every tool.</strong> Scene Studio, Holiday Overlay, Model Showcase, Language Conversion, Freestyle, Inpaint, and Outpaint are all available on every plan — the only thing that changes between plans is how many images you get each month.</p>
         </div>
       </div>
 
@@ -547,7 +556,11 @@
       <div class="faq-list reveal">
         <details class="faq-item">
           <summary>Do I need to upload my photos anywhere?</summary>
-          <p>No. StyleBig reads your BigCommerce catalogue directly — you browse categories, pick products, and generate. Results save straight back onto the product. There is no export, no re-upload, and no separate library to keep in sync.</p>
+          <p>Your source product photos come directly from your BigCommerce catalogue. Scene Studio also accepts a background reference, Model Showcase accepts a model reference, and Freestyle accepts an optional image. Reference uploads support PNG, JPEG and WebP. Review generated results and save the ones you want to the product.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I translate text that is already inside a product image?</summary>
+          <p>Yes. Language Conversion detects the source language and translates readable text into your selected target language, including text on labels, packaging and product surfaces. The tool is designed to keep translated text within its original area while preserving the product, background and brand names. Review the result before saving it to your product.</p>
         </details>
         <details class="faq-item">
           <summary>What happens to my product images?</summary>
@@ -595,7 +608,7 @@
           <svg class="mark" viewBox="0 0 64 64" fill="none"><path d="M32 8 L58 50 H6 Z" stroke="url(#g2)" stroke-width="4"/><circle cx="32" cy="36" r="4" fill="#8B5CF6"/><defs><linearGradient id="g2" x1="6" y1="8" x2="58" y2="50"><stop stop-color="#3B82F6"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs></svg>
           AI ZONE LABS
         </a>
-        <p>StyleBig is a native BigCommerce app built by AI Zone Labs, approved and published on the BigCommerce App Marketplace, turning product photos into AI-generated lifestyle scenes, holiday visuals, and model showcases.</p>
+        <p>StyleBig is a native BigCommerce app built by AI Zone Labs, approved and published on the BigCommerce App Marketplace, offering seven AI image tools for product scenes, holiday visuals, model showcases, image text translation and precision editing, plus standalone creative assets.</p>
         <a href="https://www.bigcommerce.com/apps/stylebig/" class="btn btn-ghost" style="margin-top:18px;">View On BigCommerce Marketplace →</a>
       </div>
       <div class="footer-col">
